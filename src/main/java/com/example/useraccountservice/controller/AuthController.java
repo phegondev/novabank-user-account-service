@@ -8,10 +8,7 @@ import com.example.useraccountservice.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -28,6 +25,11 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<AuthResponse>> login(@RequestBody @Valid LoginRequest loginRequest){
         return ResponseEntity.ok(authService.loginUser(loginRequest));
+    }
+
+    @GetMapping("/hello")
+    public ResponseEntity<ApiResponse<?>> hello(@RequestBody @Valid LoginRequest loginRequest){
+        return ResponseEntity.ok(new ApiResponse<>(200, "Success", "HELLO 😁"));
     }
 }
 
