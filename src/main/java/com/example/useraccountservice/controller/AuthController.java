@@ -29,7 +29,7 @@ public class AuthController {
 
     @GetMapping("/hello")
     public ResponseEntity<ApiResponse<?>> hello(@RequestBody @Valid LoginRequest loginRequest){
-        return ResponseEntity.ok(new ApiResponse<>(200, "Success", "HELLO 😁"));
+        return ResponseEntity.ok(new ApiResponse<>(200, "Success", "Welcome To Nova Bank"));
     }
 }
 
